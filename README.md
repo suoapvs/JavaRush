@@ -1,2 +1,5 @@
-JavaRush Home Work 
-(http://javarush.ru)
+JavaRush HomeWork 
+
+http://javarush.ru
+
+_**Yurii Salimov**_
