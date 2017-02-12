@@ -13,12 +13,6 @@ public class Solution
 
     public static int min(int a, int b)
     {
-        int m1;
-        if (a < b)
-            m1 = a;
-        else
-            m1 = b;
-        return m1;
-
+        return a < b ? a : b;
     }
 }
