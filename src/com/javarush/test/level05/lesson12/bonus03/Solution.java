@@ -1,6 +1,6 @@
 package com.javarush.test.level05.lesson12.bonus03;
 
-import java.io.*;
+import java.util.Scanner;
 
 /* Задача по алгоритмам
 Написать программу, которая:
@@ -13,25 +13,23 @@ public class Solution
 {
     public static void main(String[] args) throws Exception
     {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        final Scanner scanner = new Scanner(System.in);
         int n;
         do
         {
-            n = Integer.parseInt(reader.readLine());
+            n = scanner.nextInt();
         }
         while (n <= 0);
-
-        int maximum = Integer.parseInt(reader.readLine());
+        int maximum = 0;
         int temp;
-        for (int i = 0; i < n - 1; i++)
+        for (int i = 0; i < n; i++)
         {
-            temp = Integer.parseInt(reader.readLine());
+            temp = scanner.nextInt();
             if (temp > maximum)
             {
                 maximum = temp;
             }
         }
-
         System.out.println(maximum);
     }
 }

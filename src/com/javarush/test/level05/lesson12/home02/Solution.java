@@ -23,24 +23,28 @@ public class Solution
         System.out.println(woman2.name + " " + woman2.age + " " + woman2.address);
     }
 
-    public static class Man {
+    public static class Man
+    {
         public String name;
         public int age;
         public String address;
 
-        public Man(String name, int age, String address) {
+        public Man(String name, int age, String address)
+        {
             this.name = name;
             this.age = age;
             this.address = address;
         }
     }
 
-    public static class Woman {
+    public static class Woman
+    {
         public String name;
         public int age;
         public String address;
 
-        public Woman(String name, int age, String address) {
+        public Woman(String name, int age, String address)
+        {
             this.name = name;
             this.age = age;
             this.address = address;
