@@ -15,16 +15,13 @@ import java.util.Scanner;
 
 public class Solution
 {
-    public static void main(String[] args)   throws Exception
+    public static void main(String[] args) throws Exception
     {
-        Scanner in = new Scanner(System.in);
-
-        String name = in.next();
-        int y = in.nextInt();
-        int m = in.nextInt();
-        int d = in.nextInt();
-
-        System.out.println("Меня зовут " + name);
-        System.out.println("Я родился " + d + "." + m + "." + y);
+        final Scanner scanner = new Scanner(System.in);
+        final String name = scanner.next();
+        final int y = scanner.nextInt();
+        final int m = scanner.nextInt();
+        final int d = scanner.nextInt();
+        System.out.println("Меня зовут " + name + "\nЯ родился " + d + "." + m + "." + y);
     }
 }

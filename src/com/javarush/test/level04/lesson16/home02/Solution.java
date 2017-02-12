@@ -8,22 +8,17 @@ import java.util.Scanner;
 
 public class Solution
 {
-    public static void main(String[] args)   throws Exception
+    public static void main(String[] args) throws Exception
     {
-        Scanner in = new Scanner(System.in);
-
-        int a = in.nextInt();
-        int b = in.nextInt();
-        int c = in.nextInt();
-
+        final Scanner scanner = new Scanner(System.in);
+        final int a = scanner.nextInt();
+        final int b = scanner.nextInt();
+        final int c = scanner.nextInt();
         System.out.println(method(a, b, c));
     }
 
-    public static int method(int a,int b, int c){
-        if((a >= b && a <= c) || (a <= b && a >= c)) {
-            return a;
-        } else {
-            return method(b, c, a);
-        }
+    public static int method(int a, int b, int c)
+    {
+        return (a <= b) && (a >= c) ? a : method(b, c, a);
     }
 }
