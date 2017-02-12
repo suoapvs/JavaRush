@@ -1,5 +1,4 @@
-JavaRush HomeWork 
+My [JavaRush](http://javarush.ru) Homework
 
-http://javarush.ru
-
-_**Yurii Salimov**_
+_**Yurii Salimov**_ 
+([yuriy.alex.salimov@gmail.com](mailto:yuriy.alex.salimov@gmail.com))
