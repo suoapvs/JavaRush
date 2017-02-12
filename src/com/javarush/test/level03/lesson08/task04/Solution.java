@@ -6,16 +6,15 @@ name1 проспонсировал name2 и она стала известной
 Пример: Коля проспонсировал Лену, и она стала известной певицей.
 */
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class Solution
 {
     public static void main(String[] args) throws Exception
     {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String name1 = br.readLine();
-        String name2 = br.readLine();
-        System.out.println(name1+" проспонсировал "+name2+", и она стала известной певицей.");
+        final Scanner scanner = new Scanner(System.in);
+        final String name1 = scanner.nextLine();
+        final String name2 = scanner.nextLine();
+        System.out.println(name1 + " проспонсировал " + name2 + ", и она стала известной певицей.");
     }
 }

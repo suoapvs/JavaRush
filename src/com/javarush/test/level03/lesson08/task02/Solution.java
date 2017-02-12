@@ -12,10 +12,10 @@ public class Solution
 {
     public static void main(String[] args) throws Exception
     {
-        Scanner s = new Scanner(System.in);
-        String name = s.nextLine();
-        int num1 = s.nextInt();
-        int num2 = s.nextInt();
-        System.out.println(name+" получает "+num1+" через "+num2+" лет.");
+        final Scanner scanner = new Scanner(System.in);
+        final String name = scanner.nextLine();
+        final int num1 = scanner.nextInt();
+        final int num2 = scanner.nextInt();
+        System.out.println(name + " получает " + num1 + " через " + num2 + " лет.");
     }
 }

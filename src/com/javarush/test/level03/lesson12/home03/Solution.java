@@ -6,12 +6,14 @@ package com.javarush.test.level03.lesson12.home03;
 Пример:
 Я буду зарабатывать $50 в час
 */
+
 import java.util.Scanner;
 
 public class Solution
 {
-    public static void main(String[] args)   throws Exception
+    public static void main(String[] args) throws Exception
     {
-        System.out.println("Я буду зарабатывать $" + new Scanner(System.in).nextInt() + " в час");
+        final int num = new Scanner(System.in).nextInt();
+        System.out.println("Я буду зарабатывать $" + num + " в час");
     }
 }

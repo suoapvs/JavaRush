@@ -6,20 +6,16 @@ package com.javarush.test.level03.lesson08.task01;
 Пример: Вася захватит мир через 8 лет. Му-ха-ха!
 */
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.Scanner;
 
 
 public class Solution
 {
     public static void main(String[] args) throws Exception
     {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String tempAge = br.readLine();
-        String name = br.readLine();
-        int age = Integer.parseInt(tempAge);
+        final Scanner scanner = new Scanner(System.in);
+        final int age = scanner.nextInt();
+        final String name = scanner.nextLine();
         System.out.println(name + " захватит мир через " + age + " лет. Му-ха-ха!");
     }
 }
