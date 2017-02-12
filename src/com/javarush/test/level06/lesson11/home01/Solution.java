@@ -14,7 +14,6 @@ public class Solution
         {
             new Cat();
         }
-
         System.out.println(Cat.catCount);
     }
 
@@ -24,7 +23,7 @@ public class Solution
 
         public Cat()
         {
-            catCount++;
+            Cat.catCount++;
         }
     }
 

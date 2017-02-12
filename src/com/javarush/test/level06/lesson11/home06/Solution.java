@@ -13,7 +13,5 @@ public class Solution
 
     public static class KissMyShinyMetalAss
     {
-
     }
-
 }

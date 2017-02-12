@@ -1,8 +1,7 @@
 package com.javarush.test.level06.lesson11.bonus02;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.Scanner;
 
 /* Нужно добавить в программу новую функциональность
 Задача: У каждой кошки есть имя и кошка-мама. Создать класс, который бы описывал данную ситуацию. Создать два объекта: кошку-дочь и кошку-маму. Вывести их на экран.
@@ -31,15 +30,13 @@ public class Solution
 {
     public static void main(String[] args) throws IOException
     {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
-        Cat grandfather = new Cat(reader.readLine());
-        Cat grandmother = new Cat(reader.readLine());
-        Cat father = new Cat(reader.readLine(), grandfather, null);
-        Cat mother = new Cat(reader.readLine(), null, grandmother);
-        Cat son = new Cat(reader.readLine(), father, mother);
-        Cat daughter = new Cat(reader.readLine(), father, mother);
-
+        final Scanner scanner = new Scanner(System.in);
+        final Cat grandfather = new Cat(scanner.nextLine());
+        final Cat grandmother = new Cat(scanner.nextLine());
+        final Cat father = new Cat(scanner.nextLine(), grandfather, null);
+        final Cat mother = new Cat(scanner.nextLine(), null, grandmother);
+        final Cat son = new Cat(scanner.nextLine(), father, mother);
+        final Cat daughter = new Cat(scanner.nextLine(), father, mother);
         System.out.println(grandfather);
         System.out.println(grandmother);
         System.out.println(father);
@@ -54,14 +51,14 @@ public class Solution
         private Cat mother;
         private Cat father;
 
-        Cat(String name)
+        Cat(final String name)
         {
             this.name = name;
         }
 
-        Cat(String name, Cat father, Cat mother)
+        Cat(final String name, final Cat father, final Cat mother)
         {
-            this.name = name;
+            this(name);
             this.father = father;
             this.mother = mother;
         }
@@ -69,20 +66,9 @@ public class Solution
         @Override
         public String toString()
         {
-            if (mother == null && father == null)
-            {
-                return "Cat name is " + name + ", no mother, no father";
-            } else if (mother == null)
-            {
-                return "Cat name is " + name + ", no mother, father is " + father.name;
-            } else if (father == null)
-            {
-                return "Cat name is " + name + ", mother is " + mother.name +  ", no father";
-            } else
-            {
-                return "Cat name is " + name + ", mother is " + mother.name + ", father is " + father.name;
-            }
+            return ("Cat name is " + this.name) +
+                    (this.mother != null ? ", mother is " + this.mother.name : ", no mother") +
+                    (this.father != null ? ", father is " + this.father.name : ", no father");
         }
     }
-
 }

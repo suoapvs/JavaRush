@@ -8,24 +8,28 @@ package com.javarush.test.level06.lesson11.home02;
 
 import java.util.ArrayList;
 
-public class Cat {
+public class Cat
+{
     public static ArrayList<Cat> cats = new ArrayList<>();
 
-    public Cat() {
-        cats.add(this);
+    public Cat()
+    {
+        Cat.cats.add(this);
     }
-    //напишите тут ваш код
 
-    public static void main(String[] args) {
-        for (int i = 0; i < 10; i++) {
+    public static void main(String[] args)
+    {
+        for (int i = 0; i < 10; i++)
+        {
             new Cat();
         }
-
         printCats();
     }
 
-    public static void printCats() {
-        for (Cat cat : cats) {
+    public static void printCats()
+    {
+        for (Cat cat : Cat.cats)
+        {
             System.out.println(cat);
         }
     }
