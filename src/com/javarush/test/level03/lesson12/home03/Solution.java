@@ -12,8 +12,6 @@ public class Solution
 {
     public static void main(String[] args)   throws Exception
     {
-        Scanner in = new Scanner(System.in);
-        int n = in.nextInt();
-        System.out.println("Я буду зарабатывать $" + n + " в час");
+        System.out.println("Я буду зарабатывать $" + new Scanner(System.in).nextInt() + " в час");
     }
 }
