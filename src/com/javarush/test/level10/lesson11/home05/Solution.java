@@ -1,12 +1,12 @@
 package com.javarush.test.level10.lesson11.home05;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /* Количество букв
-Ввести с клавиатуры 10 строчек и подсчитать в них количество различных букв (для 33 букв алфавита).  Вывести результат на экран.
+Ввести с клавиатуры 10 строчек и подсчитать в них количество различных букв (для 33 букв алфавита).
+Вывести результат на экран.
 Пример вывода:
 а 5
 б 8
@@ -19,43 +19,57 @@ import java.util.List;
 
 public class Solution
 {
-    public static void main(String[] args) throws Exception {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    public static void main(String[] args) throws Exception
+    {
 
-        //алфавит
-        String abc = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
-        char[] abcArray = abc.toCharArray();
-
-        ArrayList<Character> alphabet = new ArrayList<Character>();
-        for (int i = 0; i < abcArray.length; i++)
-        {
-            alphabet.add(abcArray[i]);
-        }
-
-        //ввод строк
-        ArrayList<String> list = new ArrayList<String>();
-        for (int i = 0; i < 10; i++)
-        {
-            String s = reader.readLine();
-            list.add(s.toLowerCase());
-        }
-
-        int[] count = getCount(list, alphabet);
-
-        for (int i = 0; i < alphabet.size(); i++) {
-            System.out.println(alphabet.get(i) + " " + count[i]);
-        }
+        final List<Character> alphabet = getAlphabet();
+        final List<String> lines = scanLines();
+        final int[] count = getCount(lines, alphabet);
+        print(alphabet, count);
     }
 
-    private static int[] getCount(List<String> list, List<Character> alphabet) {
-        int[] count = new int[alphabet.size()];
-        char[] symbols;
-        for (String line : list) {
-            symbols = line.toCharArray();
-            for (char c : symbols) {
+    private static List<Character> getAlphabet()
+    {
+        final List<Character> alphabet = new ArrayList<>();
+        for (char c : "абвгдеёжзийклмнопрстуфхцчшщъыьэюя".toCharArray())
+        {
+            alphabet.add(c);
+        }
+        return alphabet;
+    }
+
+    private static List<String> scanLines()
+    {
+        final Scanner scanner = new Scanner(System.in);
+        final List<String> lines = new ArrayList<>();
+        for (int i = 0; i < 1; i++)
+        {
+            lines.add(scanner.nextLine().toLowerCase());
+        }
+        return lines;
+    }
+
+    private static int[] getCount(
+            final List<String> list,
+            final List<Character> alphabet
+    )
+    {
+        final int[] count = new int[alphabet.size()];
+        for (String line : list)
+        {
+            for (char c : line.toCharArray())
+            {
                 count[alphabet.indexOf(c)]++;
             }
         }
         return count;
+    }
+
+    private static void print(final List<Character> alphabet, final int[] count)
+    {
+        for (int i = 0; i < alphabet.size(); i++)
+        {
+            System.out.println(alphabet.get(i) + " " + count[i]);
+        }
     }
 }

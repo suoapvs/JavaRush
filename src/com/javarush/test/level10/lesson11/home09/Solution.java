@@ -1,10 +1,9 @@
 package com.javarush.test.level10.lesson11.home09;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 /* Одинаковые слова в списке
 Ввести с клавиатуры в список 20 слов. Нужно подсчитать количество одинаковых слов в списке.
@@ -18,36 +17,32 @@ public class Solution
 {
     public static void main(String[] args) throws Exception
     {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
-        ArrayList<String> words = new ArrayList<String>();
+        final Scanner scanner = new Scanner(System.in);
+        final ArrayList<String> words = new ArrayList<>();
         for (int i = 0; i < 20; i++)
         {
-            words.add(reader.readLine());
+            words.add(scanner.nextLine());
         }
-
-        Map<String, Integer> map = countWords(words);
-
-        for (Map.Entry<String, Integer> pair : map.entrySet())
+        final Map<String, Integer> map = countWords(words);
+        for (Map.Entry<String, Integer> entry : map.entrySet())
         {
-            System.out.println(pair.getKey() + " " + pair.getValue());
+            System.out.println(entry.getKey() + " " + entry.getValue());
         }
     }
 
     public static Map<String, Integer> countWords(ArrayList<String> list)
     {
-        HashMap<String, Integer> result = new HashMap<>();
+        final Map<String, Integer> result = new HashMap<>();
         for (String line : list)
         {
             result.put(line, 0);
         }
-
         int count;
         String line;
-        for (Map.Entry<String, Integer> item : result.entrySet())
+        for (Map.Entry<String, Integer> entry : result.entrySet())
         {
             count = 0;
-            line = item.getKey();
+            line = entry.getKey();
             for (String line2 : list)
             {
                 if (line.equals(line2))
@@ -57,9 +52,6 @@ public class Solution
             }
             result.put(line, count);
         }
-
-
         return result;
     }
-
 }

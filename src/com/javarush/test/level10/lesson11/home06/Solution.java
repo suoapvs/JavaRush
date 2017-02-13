@@ -1,7 +1,8 @@
 package com.javarush.test.level10.lesson11.home06;
 
 /* Конструкторы класса Human
-Напиши класс Human с 6 полями. Придумай и реализуй 10 различных конструкторов для него. Каждый конструктор должен иметь смысл.
+Напиши класс Human с 6 полями. Придумай и реализуй 10 различных конструкторов для него.
+Каждый конструктор должен иметь смысл.
 */
 
 public class Solution
@@ -22,60 +23,50 @@ public class Solution
 
         public Human(String name, String surname, int age, boolean sex, String address, String profession)
         {
-            this.name = name;
-            this.surname = surname;
+            this(name, surname, address, profession);
             this.age = age;
             this.sex = sex;
-            this.address = address;
-            this.profession = profession;
         }
 
         public Human(String name, String surname, String address, String profession)
         {
-            this.name = name;
-            this.surname = surname;
-            this.address = address;
+            this(name, surname, address);
             this.profession = profession;
         }
 
         public Human(String name, String surname, String address)
         {
-            this.name = name;
-            this.surname = surname;
+            this(name, surname);
             this.address = address;
         }
 
         public Human(String name, String surname)
         {
-            this.name = name;
+            this(name);
             this.surname = surname;
         }
 
         public Human(String name, String surname, int age)
         {
-            this.name = name;
-            this.surname = surname;
+            this(name, surname);
             this.age = age;
         }
 
         public Human(String name, String surname, int age, boolean sex)
         {
-            this.name = name;
-            this.surname = surname;
-            this.age = age;
+            this(name, surname, age);
             this.sex = sex;
         }
 
         public Human(String name, int age, boolean sex)
         {
-            this.name = name;
-            this.age = age;
+            this(name, age);
             this.sex = sex;
         }
 
         public Human(String name, int age)
         {
-            this.name = name;
+            this(name);
             this.age = age;
         }
 
@@ -86,7 +77,7 @@ public class Solution
 
         public Human(String name, boolean sex)
         {
-            this.name = name;
+            this(name);
             this.sex = sex;
         }
 

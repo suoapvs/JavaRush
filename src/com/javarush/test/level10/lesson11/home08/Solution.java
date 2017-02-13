@@ -1,6 +1,7 @@
 package com.javarush.test.level10.lesson11.home08;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /* Массив списков строк
@@ -11,42 +12,38 @@ public class Solution
 {
     public static void main(String[] args)
     {
-        ArrayList<String>[] arrayOfStringList = createList();
-        printList(arrayOfStringList);
+        printList(createList());
     }
 
     public static ArrayList<String>[] createList()
     {
-        ArrayList<String>[] list = new ArrayList[10];
-        Random random = new Random();
-        String temp;
-
+        final ArrayList<String>[] list = new ArrayList[10];
+        final Random random = new Random();
         final char[] alphabet = {' ', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-
-        for (int k = 0; k < list.length; k++)
+        String temp;
+        for (int i = 0; i < list.length; i++)
         {
-            list[k] = new ArrayList<>();
-            for (int i = 0; i < random.nextInt(100); i++)
+            list[i] = new ArrayList<>();
+            for (int j = 0; j < random.nextInt(100); j++)
             {
                 temp = "";
-                for (int j = 0; j < random.nextInt(100); j++)
+                for (int k = 0; k < random.nextInt(100); k++)
                 {
                     temp += alphabet[random.nextInt(alphabet.length)];
                 }
-                list[k].add(temp);
+                list[i].add(temp);
             }
         }
-
         return list;
     }
 
     public static void printList(ArrayList<String>[] arrayOfStringList)
     {
-        for (ArrayList<String> list : arrayOfStringList)
+        for (List<String> list : arrayOfStringList)
         {
-            for (String s : list)
+            for (String line : list)
             {
-                System.out.println(s);
+                System.out.println(line);
             }
         }
     }

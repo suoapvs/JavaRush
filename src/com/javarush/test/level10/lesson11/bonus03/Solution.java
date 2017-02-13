@@ -1,8 +1,7 @@
 package com.javarush.test.level10.lesson11.bonus03;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.Scanner;
 
 /* Задача по алгоритмам
 Задача: ввести с клавиатуры 30 чисел. Вывести 10-е и 11-е минимальные числа.
@@ -21,15 +20,13 @@ public class Solution
 {
     public static void main(String[] args) throws Exception
     {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        int[] array = new int[30];
+        final Scanner scanner = new Scanner(System.in);
+        final int[] array = new int[30];
         for (int i = 0; i < 30; i++)
         {
-            array[i] = Integer.parseInt(reader.readLine());
+            array[i] = scanner.nextInt();
         }
-
         sort(array);
-
         System.out.println(array[9]);
         System.out.println(array[10]);
     }
