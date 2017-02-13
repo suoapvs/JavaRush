@@ -3,7 +3,8 @@ package com.javarush.test.level08.lesson11.home09;
 import java.util.Date;
 
 /* Работа с датой
-1. Реализовать метод isDateOdd(String date) так, чтобы он возвращал true, если количество дней с начала года - нечетное число, иначе false
+1. Реализовать метод isDateOdd(String date) так, чтобы он возвращал true,
+если количество дней с начала года - нечетное число, иначе false
 2. String date передается в формате MAY 1 2013
 Не забудьте учесть первый день года.
 Пример:
@@ -27,7 +28,6 @@ public class Solution
         long dif = finish - start;
         long msDay = 1000 * 60 * 60 * 24;
         int dayCount = (int) (dif / msDay);
-
         return dayCount % 2 == 0;
     }
 }

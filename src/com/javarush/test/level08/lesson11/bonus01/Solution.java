@@ -1,10 +1,9 @@
 package com.javarush.test.level08.lesson11.bonus01;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 /* Номер месяца
 Программа вводит с клавиатуры имя месяца и выводит его номер на экран в виде: «May is 5 month».
@@ -15,10 +14,9 @@ public class Solution
 {
     public static void main(String[] args) throws IOException
     {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        String month = reader.readLine();
-
-        Map<String, Integer> months = new HashMap<String, Integer>();
+        final Scanner scanner = new Scanner(System.in);
+        final String month = scanner.nextLine();
+        final Map<String, Integer> months = new HashMap<String, Integer>();
         months.put("January", 1);
         months.put("February", 2);
         months.put("March", 3);
@@ -31,14 +29,6 @@ public class Solution
         months.put("October", 10);
         months.put("November", 11);
         months.put("December", 12);
-
-        for (Map.Entry<String, Integer> pair : months.entrySet())
-        {
-            if (pair.getKey().contains(month))
-            {
-                System.out.println(month + " is " + pair.getValue() + " month");
-            }
-        }
+        System.out.println(month + " is " + months.get(month) + " month");
     }
-
 }

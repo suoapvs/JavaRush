@@ -18,30 +18,35 @@ public class Solution
 
     public static void main(String[] args)
     {
-        Map<String, String> map = createPeopleList();
-        printPeopleList(map);
+        printPeopleList(
+                createPeopleList()
+        );
     }
 
     public static Map<String, String> createPeopleList()
     {
-        Map<String, String> people = new HashMap<>();
-        for (int i = 0; i < 10; i++) {
-            people.put(getRandomLine(NAMES), getRandomLine(SURNAMES));
+        final Map<String, String> people = new HashMap<>();
+        for (int i = 0; i < 10; i++)
+        {
+            people.put(
+                    getRandomLine(NAMES),
+                    getRandomLine(SURNAMES)
+            );
         }
-
         return people;
     }
 
     public static void printPeopleList(Map<String, String> map)
     {
-        for (Map.Entry<String, String> s : map.entrySet())
+        for (Map.Entry<String, String> entry : map.entrySet())
         {
-            System.out.println(s.getKey() + " " + s.getValue());
+            System.out.println(entry.getKey() + " " + entry.getValue());
         }
     }
 
-    private static String getRandomLine(String[] lines) {
-        Random random = new Random();
+    private static String getRandomLine(String[] lines)
+    {
+        final Random random = new Random();
         int index = random.nextInt(lines.length);
         return lines[index];
     }

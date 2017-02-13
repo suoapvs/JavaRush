@@ -17,13 +17,13 @@ public class Solution
         Human child2 = new Human("child2", false, 18, null);
         Human child3 = new Human("child3", true, 16, null);
 
-        List<Human> childs = new ArrayList<>();
-        childs.add(child1);
-        childs.add(child2);
-        childs.add(child3);
+        List<Human> children = new ArrayList<>();
+        children.add(child1);
+        children.add(child2);
+        children.add(child3);
 
-        Human father = new Human("father", true, 40, childs);
-        Human mother = new Human("mother", false, 37, childs);
+        Human father = new Human("father", true, 40, children);
+        Human mother = new Human("mother", false, 37, children);
 
         List<Human> fatherList = new ArrayList<>();
         fatherList.add(father);
@@ -70,24 +70,19 @@ public class Solution
         @Override
         public String toString()
         {
-            String text = "";
-            text += "Имя: " + this.name;
-            text += ", пол: " + (this.sex ? "мужской" : "женский");
-            text += ", возраст: " + this.age;
-
-            int childCount = this.children.size();
-            if (childCount > 0)
+            final StringBuilder sb = new StringBuilder();
+            sb.append("Имя: ").append(this.name)
+                    .append(", пол: ").append(this.sex ? "мужской" : "женский")
+                    .append(", возраст: ").append(this.age);
+            if (!this.children.isEmpty())
             {
-                text += ", дети: "+this.children.get(0).name;
-
-                for (int i = 1; i < childCount; i++)
+                sb.append(", дети: ");
+                for (Human child : this.children)
                 {
-                    Human child = this.children.get(i);
-                    text += ", "+child.name;
+                    sb.append(child.getName()).append(", ");
                 }
             }
-
-            return text;
+            return sb.toString();
         }
 
         public String getName()

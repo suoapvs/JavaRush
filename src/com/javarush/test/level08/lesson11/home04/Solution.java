@@ -13,8 +13,9 @@ public class Solution
 {
     public static void main(String[] args) throws Exception
     {
-        List<Integer> integerList = getIntegerList();
-        System.out.println(getMinimum(integerList));
+        System.out.println(
+                getMinimum(getIntegerList())
+        );
     }
 
     public static int getMinimum(List<Integer> array)
@@ -25,21 +26,18 @@ public class Solution
 
     public static List<Integer> getIntegerList() throws IOException
     {
-        Scanner in = new Scanner(System.in);
-
+        final Scanner scanner = new Scanner(System.in);
         int n;
         do
         {
-            n = in.nextInt();
+            n = scanner.nextInt();
         }
         while (n <= 0);
-
-        List<Integer> list = new ArrayList<>();
+        final List<Integer> list = new ArrayList<>();
         for (int i = 0; i < n; i++)
         {
-            list.add(in.nextInt());
+            list.add(scanner.nextInt());
         }
-
         return list;
     }
 }
