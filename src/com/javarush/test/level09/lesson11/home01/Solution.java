@@ -17,8 +17,6 @@ public class Solution {
     }
 
     public static void divisionByZero() throws ArithmeticException {
-        int a = 100;
-        int b = 0;
-        System.out.println(a / b);
+        System.out.println(0 / 0);
     }
 }

@@ -13,48 +13,11 @@ import java.util.Set;
 
 public class Solution
 {
-    public static void main(String[] args)
-    {
-        Map<String, Cat> map = createMap();
-        Set<Cat> set = convertMapToSet(map);
-        printCatSet(set);
-    }
-
-    public static Map<String, Cat> createMap()
-    {
-        Map<String, Cat> cats = new HashMap<>();
-        String name;
-        for (int i = 0; i < 10; i++)
-        {
-            name = "cat" + i;
-            cats.put(name, new Cat(name));
-        }
-        return cats;
-    }
-
-    public static Set<Cat> convertMapToSet(Map<String, Cat> map)
-    {
-        Set<Cat> cats = new HashSet<>();
-        for (Cat cat : map.values())
-        {
-            cats.add(cat);
-        }
-        return cats;
-    }
-
-    public static void printCatSet(Set<Cat> set)
-    {
-        for (Cat cat : set)
-        {
-            System.out.println(cat);
-        }
-    }
-
     public static class Cat
     {
         private String name;
 
-        public Cat(String name)
+        public Cat(final String name)
         {
             this.name = name;
         }
@@ -63,7 +26,52 @@ public class Solution
         {
             return "Cat " + this.name;
         }
+
+        public String getName() {
+            return this.name;
+        }
+
+        public void setName(final String name) {
+            this.name = name;
+        }
     }
 
+    public static void main(String[] args)
+    {
+        printCatSet(
+                convertMapToSet(
+                        createMap()
+                )
+        );
+    }
 
+    public static Map<String, Cat> createMap()
+    {
+        final Map<String, Cat> cats = new HashMap<>();
+        Cat cat;
+        for (int i = 0; i < 10; i++)
+        {
+            cat = new Cat("Cat #" + i);
+            cats.put(cat.getName(), cat);
+        }
+        return cats;
+    }
+
+    public static Set<Cat> convertMapToSet(final Map<String, Cat> map)
+    {
+        final Set<Cat> cats = new HashSet<>();
+        for (Cat cat : map.values())
+        {
+            cats.add(cat);
+        }
+        return cats;
+    }
+
+    public static void printCatSet(final Set<Cat> set)
+    {
+        for (Cat cat : set)
+        {
+            System.out.println(cat);
+        }
+    }
 }

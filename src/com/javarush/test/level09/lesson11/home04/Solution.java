@@ -1,9 +1,9 @@
 package com.javarush.test.level09.lesson11.home04;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Scanner;
 
 /* Конвертер дат
 Ввести с клавиатуры дату в формате «08/18/2013»
@@ -11,15 +11,14 @@ import java.util.Date;
 Воспользоваться объектом Date и SimpleDateFormat.
 */
 
-public class Solution {
+public class Solution
+{
 
-    public static void main(String[] args) throws Exception {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
-        Date date = new Date(reader.readLine());
-
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMM d, y");
-
-        System.out.println(simpleDateFormat.format(date).toUpperCase());
+    public static void main(String[] args) throws Exception
+    {
+        final Scanner scanner = new Scanner(System.in);
+        final Date date = new Date(scanner.nextLine());
+        final DateFormat format = new SimpleDateFormat("MMM d, y");
+        System.out.println(format.format(date).toUpperCase());
     }
 }

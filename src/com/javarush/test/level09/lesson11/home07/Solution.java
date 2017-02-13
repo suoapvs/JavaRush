@@ -6,16 +6,15 @@ package com.javarush.test.level09.lesson11.home07;
 
 public class Solution
 {
-    public static int A = 5;
-    public static int B = 2 * A;
-    public int C = A * B;
-    public static int D = A * B;
+    private static int A = 5;
+    private static int B = 2 * A;
+    private int C = A * B;
+    private static int D = A * B;
 
     public void main(String[] args)
     {
         Solution room = new Solution();
         room.A = 5;
-
         Solution.D = 5;
     }
 
@@ -23,5 +22,4 @@ public class Solution
     {
         return A;
     }
-
 }

@@ -1,11 +1,12 @@
 package com.javarush.test.level09.lesson11.bonus03;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 /* Задача по алгоритмам
-Задача: Пользователь вводит с клавиатуры список слов (и чисел). Слова вывести в возрастающем порядке, числа - в убывающем.
+Задача: Пользователь вводит с клавиатуры список слов (и чисел).
+Слова вывести в возрастающем порядке, числа - в убывающем.
 Пример ввода:
 Вишня
 1
@@ -30,21 +31,19 @@ public class Solution
 {
     public static void main(String[] args) throws Exception
     {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        ArrayList<String> list = new ArrayList<String>();
+        final Scanner scanner = new Scanner(System.in);
+        final List<String> list = new ArrayList<>();
         while (true)
         {
-            String s = reader.readLine();
-            if (s.isEmpty()) break;
-            list.add(s);
+            String line = scanner.nextLine();
+            if (line.isEmpty()) break;
+            list.add(line);
         }
-
-        String[] array = list.toArray(new String[list.size()]);
+        final String[] array = list.toArray(new String[list.size()]);
         sort(array);
-
-        for (String x : array)
+        for (String line : array)
         {
-            System.out.println(x);
+            System.out.println(line);
         }
     }
 
@@ -53,11 +52,11 @@ public class Solution
         String temp;
         for (int i = 0; i < array.length; i++)
         {
-            if (isNumber(array[i]) == true)
+            if (isNumber(array[i]))
             {
                 for (int j = 0; j < array.length; j++)
                 {
-                    if (isNumber(array[j]) == true)
+                    if (isNumber(array[j]))
                     {
                         int a = Integer.parseInt(array[i]);
                         int b = Integer.parseInt(array[j]);
@@ -73,9 +72,9 @@ public class Solution
             {
                 for (int j = 0; j < array.length; j++)
                 {
-                    if (isNumber(array[j]) == false)
+                    if (isNumber(array[j]))
                     {
-                        if (isGreaterThan(array[i], array[j]) == false)
+                        if (isGreaterThan(array[i], array[j]))
                         {
                             temp = array[i];
                             array[i] = array[j];

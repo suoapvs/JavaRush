@@ -1,7 +1,6 @@
 package com.javarush.test.level09.lesson11.home05;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.util.Scanner;
 
 /* Гласные и согласные буквы
 Написать программу, которая вводит с клавиатуры строку текста.
@@ -19,21 +18,18 @@ import java.io.InputStreamReader;
 
 public class Solution
 {
-    public static char[] vowels = new char[]{'а', 'я', 'у', 'ю', 'и', 'ы', 'э', 'е', 'о', 'ё'};
+    private final static char[] VOWELS = {'а', 'я', 'у', 'ю', 'и', 'ы', 'э', 'е', 'о', 'ё'};
 
     public static void main(String[] args) throws Exception
     {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        String line = reader.readLine();
-        splitLine(line);
+        splitLine(new Scanner(System.in).nextLine());
     }
 
     public static void splitLine(String line)
     {
         String vowelsLine = "";
         String otherLine = "";
-
-        for (char c : line.toCharArray())
+        for (char c : line.replace(" ", "").toCharArray())
         {
             if (isVowel(c))
             {
@@ -43,7 +39,6 @@ public class Solution
                 otherLine += c + " ";
             }
         }
-
         System.out.println(vowelsLine);
         System.out.println(otherLine);
     }
@@ -54,7 +49,7 @@ public class Solution
     {
         c = Character.toLowerCase(c);  //приводим символ в нижний регистр - от заглавных к строчным буквам
 
-        for (char d : vowels)   //ищем среди массива гласных
+        for (char d : VOWELS)   //ищем среди массива гласных
         {
             if (c == d)
                 return true;
