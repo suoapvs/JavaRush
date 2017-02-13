@@ -22,15 +22,13 @@ public class Solution
             for (int i = 30; i >= 0; i--)
             {
                 System.out.println(i);
-
                 Thread.sleep(100);
             }
+            System.out.println("Бум!");
         }
         catch (InterruptedException ex)
         {
             ex.printStackTrace();
         }
-
-        System.out.println("Бум!");
     }
 }

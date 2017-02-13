@@ -1,10 +1,9 @@
 package com.javarush.test.level07.lesson12.home04;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /* Вводить с клавиатуры строки, пока пользователь не введёт строку 'end'
 Создать список строк.
@@ -17,19 +16,20 @@ public class Solution
 {
     public static void main(String[] args) throws IOException
     {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
-        List<String> list = new ArrayList<>();
+        final List<String> list = new ArrayList<>();
+        final Scanner scanner = new Scanner(System.in);
         String temp;
-        while(true) {
-            temp = reader.readLine();
-            if (temp.equals("end")) {
+        while (true)
+        {
+            temp = scanner.nextLine();
+            if (temp.equals("end"))
+            {
                 break;
             }
             list.add(temp);
         }
-
-        for (String line : list) {
+        for (String line : list)
+        {
             System.out.println(line);
         }
     }

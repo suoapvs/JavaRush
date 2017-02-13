@@ -1,9 +1,8 @@
 package com.javarush.test.level07.lesson12.bonus01;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /* Нужно исправить программу, чтобы компилировалась и работала
 Задача:  Программа вводит с клавиатуры данные про котов и выводит их на экран. Пример:
@@ -13,32 +12,31 @@ Cat name is Murka, age is 8, weight is 7, tail = 20
 
 public class Solution
 {
-    public final static ArrayList<Cat> CATS = new ArrayList<Cat>();
+    public final static ArrayList<Cat> CATS = new ArrayList<>();
 
     public static void main(String[] args) throws IOException
     {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
+        final Scanner scanner = new Scanner(System.in);
         while (true)
         {
-            String name = reader.readLine();
-            if (name.isEmpty()) break;
-
-            int age = Integer.parseInt(reader.readLine());
-            int weight = Integer.parseInt(reader.readLine());
-            int tailLength = Integer.parseInt(reader.readLine());
-
-            Cat cat = new Cat(name, age, weight, tailLength);
-            CATS.add(cat);
+            String name = scanner.nextLine();
+            if (name.isEmpty())
+            {
+                break;
+            }
+            int age = scanner.nextInt();
+            int weight = scanner.nextInt();
+            int tailLength = scanner.nextInt();
+            CATS.add(new Cat(name, age, weight, tailLength));
         }
-
         printList();
     }
 
-    public static void printList() {
-        for (int i = 0; i < CATS.size(); i++)
+    public static void printList()
+    {
+        for (Cat cat : CATS)
         {
-            System.out.println(CATS.get(i));
+            System.out.println(cat);
         }
     }
 

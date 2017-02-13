@@ -1,10 +1,9 @@
 package com.javarush.test.level07.lesson12.home02;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /* Переставить M первых строк в конец списка
 Ввести с клавиатуры 2 числа N  и M.
@@ -17,19 +16,16 @@ public class Solution
 {
     public static void main(String[] args) throws IOException
     {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(reader.readLine());
-        int m = Integer.parseInt(reader.readLine());
-
+        final Scanner scanner = new Scanner(System.in);
+        final int n = scanner.nextInt();
+        final int m = scanner.nextInt();
         List<String> list = new ArrayList<>();
         for(int i = 0; i < n; i++){
-            list.add(reader.readLine());
+            list.add("s " + i);
         }
-
         for(int i = 0; i < m; i++){
             list.add(list.remove(0));
         }
-
         for (String line : list) {
             System.out.println(line);
         }

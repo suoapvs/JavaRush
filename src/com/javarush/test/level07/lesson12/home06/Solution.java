@@ -1,7 +1,9 @@
 package com.javarush.test.level07.lesson12.home06;
 
 /* Семья
-Создай класс Human с полями имя(String), пол(boolean),возраст(int), отец(Human), мать(Human). Создай объекты и заполни их так, чтобы получилось: Два дедушки, две бабушки, отец, мать, трое детей. Вывести объекты на экран.
+Создай класс Human с полями имя(String), пол(boolean),возраст(int), отец(Human), мать(Human).
+Создай объекты и заполни их так, чтобы получилось: Два дедушки, две бабушки, отец, мать, трое детей.
+Вывести объекты на экран.
 Примечание:
 Если написать свой метод String toString() в классе Human, то именно он будет использоваться при выводе объекта на экран.
 Пример вывода:
@@ -32,8 +34,10 @@ public class Solution
         System.out.println(grandmother1);
         System.out.println(grandfather2);
         System.out.println(grandmother2);
+
         System.out.println(father);
         System.out.println(mother);
+
         System.out.println(child1);
         System.out.println(child2);
         System.out.println(child3);
@@ -59,18 +63,17 @@ public class Solution
         @Override
         public String toString()
         {
-            String text = "";
-            text += "Имя: " + this.name;
-            text += ", пол: " + (this.sex ? "мужской" : "женский");
-            text += ", возраст: " + this.age;
-
-            if (this.father != null)
-                text += ", отец: " + this.father.name;
-
-            if (this.mother != null)
-                text += ", мать: " + this.mother.name;
-
-            return text;
+            final StringBuilder sb = new StringBuilder();
+            sb.append("Имя: ").append(this.name)
+                    .append(", пол: ").append(this.sex ? "мужской" : "женский")
+                    .append(", возраст: ").append(this.age);
+            if (this.father != null) {
+                sb.append(", отец: ").append(this.father.name);
+            }
+            if (this.mother != null) {
+                sb.append(", мать: ").append(this.mother.name);
+            }
+            return sb.toString();
         }
 
         public String getName()
