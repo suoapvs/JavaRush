@@ -1,0 +1,71 @@
+package com.javarush.test.level18.lesson03.task04;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.*;
+
+/* Самые редкие байты
+Ввести с консоли имя файла
+Найти байты, которые встречаются в файле меньше всего раз.
+Вывести их на экран через пробел
+Закрыть поток ввода-вывода
+*/
+
+public class Solution
+{
+    public static void main(String[] args) throws Exception
+    {
+        final String fileName = new Scanner(System.in).nextLine();
+        final List<Integer> integerList = readFile(fileName);
+        final Map<Integer, Integer> map = frequency(integerList);
+        final int min = getMin(map);
+        printMin(map, min);
+    }
+
+    private static List<Integer> readFile(final String fileName) throws IOException
+    {
+        final List<Integer> list = new ArrayList<>();
+        try (final FileInputStream inputStream = new FileInputStream(fileName))
+        {
+            while (inputStream.available() > 0)
+            {
+                list.add(inputStream.read());
+            }
+        }
+        return list;
+    }
+
+    private static Map<Integer, Integer> frequency(final List<Integer> list)
+    {
+        final Map<Integer, Integer> map = new HashMap<>();
+        for (Integer integer : list)
+        {
+            map.put(integer, Collections.frequency(list, integer));
+        }
+        return map;
+    }
+
+    private static int getMin(final Map<Integer, Integer> map)
+    {
+        int min = 0;
+        for (Map.Entry<Integer, Integer> entry : map.entrySet())
+        {
+            if (entry.getValue() < min)
+            {
+                min = entry.getValue();
+            }
+        }
+        return min;
+    }
+
+    private static void printMin(final Map<Integer, Integer> map, final int min)
+    {
+        for (Map.Entry<Integer, Integer> entry : map.entrySet())
+        {
+            if (entry.getValue().equals(min))
+            {
+                System.out.print(entry.getKey() + " ");
+            }
+        }
+    }
+}
