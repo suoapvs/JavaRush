@@ -39,7 +39,6 @@ public class Solution
 
     public static class Note
     {
-
         private static final List<String> notes = new ArrayList<>();
 
         private static void addNote(String note)
