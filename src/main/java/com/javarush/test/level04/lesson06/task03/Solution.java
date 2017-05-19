@@ -1,57 +1,38 @@
 package com.javarush.test.level04.lesson06.task03;
 
-/* Сортировка трех чисел
-Ввести с клавиатуры три числа, и вывести их в порядке убывания.
-*/
-
+import java.util.Arrays;
 import java.util.Scanner;
 
-public class Solution
-{
-    public static void main(String[] args) throws Exception
-    {
+/**
+ * Сортировка трех чисел
+ * Ввести с клавиатуры три числа, и вывести их в порядке убывания.
+ */
+public class Solution {
+
+    public static void main(String[] args) throws Exception {
         final Scanner scanner = new Scanner(System.in);
-        int a = scanner.nextInt();
-        int b = scanner.nextInt();
-        int c = scanner.nextInt();
-        int max, mid, min;
-        if (a < b && a < c)
-        {
-            min = a;
-            if (b > c)
-            {
-                max = b;
-                mid = c;
-            } else
-            {
-                max = c;
-                mid = b;
-            }
-        } else if (b < a && b < c)
-        {
-            min = b;
-            if (a > c)
-            {
-                max = a;
-                mid = c;
-            } else
-            {
-                max = c;
-                mid = a;
-            }
-        } else
-        {
-            min = c;
-            if (a > b)
-            {
-                max = a;
-                mid = b;
-            } else
-            {
-                max = b;
-                mid = a;
+        final int a = scanner.nextInt();
+        final int b = scanner.nextInt();
+        final int c = scanner.nextInt();
+
+        final int[] result = sort(a, b, c);
+        print(result);
+    }
+
+    private static int[] sort(final int... values) {
+        Arrays.sort(values);
+        return values;
+    }
+
+    private static void print(final int[] values) {
+        final StringBuilder sb = new StringBuilder();
+        for (int i = values.length - 1; i >= 0; i--) {
+            sb.append(values[i]);
+            if (i > 0) {
+                sb.append(" ");
             }
         }
-        System.out.println(max + " " + mid + " " + min);
+        sb.append("\n");
+        System.out.println(sb.toString());
     }
 }
