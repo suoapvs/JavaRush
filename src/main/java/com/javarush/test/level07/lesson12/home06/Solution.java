@@ -1,22 +1,22 @@
 package com.javarush.test.level07.lesson12.home06;
 
-/* Семья
-Создай класс Human с полями имя(String), пол(boolean),возраст(int), отец(Human), мать(Human).
-Создай объекты и заполни их так, чтобы получилось: Два дедушки, две бабушки, отец, мать, трое детей.
-Вывести объекты на экран.
-Примечание:
-Если написать свой метод String toString() в классе Human, то именно он будет использоваться при выводе объекта на экран.
-Пример вывода:
-Имя: Аня, пол: женский, возраст: 21, отец: Павел, мать: Катя
-Имя: Катя, пол: женский, возраст: 55
-Имя: Игорь, пол: мужской, возраст: 2, отец: Михаил, мать: Аня
-…
-*/
-
-public class Solution
-{
-    public static void main(String[] args)
-    {
+/**
+ * Семья
+ * Создай класс Human с полями имя(String), пол(boolean), возраст(int), отец(Human), мать(Human).
+ * Создай объекты и заполни их так, чтобы получилось:
+ * Два дедушки, две бабушки, отец, мать, трое детей.
+ * Вывести объекты на экран.
+ * Примечание:
+ * Если написать свой метод String toString() в классе Human,
+ * то именно он будет использоваться при выводе объекта на экран.
+ * Пример вывода:
+ * Имя: Аня, пол: женский, возраст: 21, отец: Павел, мать: Катя
+ * Имя: Катя, пол: женский, возраст: 55
+ * Имя: Игорь, пол: мужской, возраст: 2, отец: Михаил, мать: Аня
+ * …
+ */
+public class Solution {
+    public static void main(String[] args) {
         Human grandfather1 = new Human("grandfather1", true, 70, null, null);
         Human grandmother1 = new Human("grandmother1", false, 67, null, null);
 
@@ -43,16 +43,14 @@ public class Solution
         System.out.println(child3);
     }
 
-    public static class Human
-    {
-        private String name;
-        private boolean sex;
-        private int age;
-        private Human father;
-        private Human mother;
+    public static class Human {
+        private final String name;
+        private final boolean sex;
+        private final int age;
+        private final Human father;
+        private final Human mother;
 
-        public Human(String name, boolean sex, int age, Human father, Human mother)
-        {
+        public Human(String name, boolean sex, int age, Human father, Human mother) {
             this.name = name;
             this.sex = sex;
             this.age = age;
@@ -61,8 +59,7 @@ public class Solution
         }
 
         @Override
-        public String toString()
-        {
+        public String toString() {
             final StringBuilder sb = new StringBuilder();
             sb.append("Имя: ").append(this.name)
                     .append(", пол: ").append(this.sex ? "мужской" : "женский")
@@ -76,55 +73,24 @@ public class Solution
             return sb.toString();
         }
 
-        public String getName()
-        {
+        public String getName() {
             return name;
         }
 
-        public void setName(String name)
-        {
-            this.name = name;
-        }
-
-        public boolean isSex()
-        {
+        public boolean isSex() {
             return sex;
         }
 
-        public void setSex(boolean sex)
-        {
-            this.sex = sex;
-        }
-
-        public int getAge()
-        {
+        public int getAge() {
             return age;
         }
 
-        public void setAge(int age)
-        {
-            this.age = age;
-        }
-
-        public Human getFather()
-        {
+        public Human getFather() {
             return father;
         }
 
-        public void setFather(Human father)
-        {
-            this.father = father;
-        }
-
-        public Human getMother()
-        {
+        public Human getMother() {
             return mother;
         }
-
-        public void setMother(Human mother)
-        {
-            this.mother = mother;
-        }
     }
-
 }
