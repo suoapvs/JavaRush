@@ -1,18 +1,17 @@
 package com.javarush.test.level08.lesson11.home06;
 
-/* Вся семья в сборе
-1. Создай класс Human с полями имя (String), пол (boolean), возраст (int), дети (ArrayList<Human>).
-2. Создай объекты и заполни их так, чтобы получилось: два дедушки, две бабушки, отец, мать, трое детей.
-3. Вывести все объекты Human на экран.
-*/
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution
-{
-    public static void main(String[] args)
-    {
+/**
+ * Вся семья в сборе
+ * 1. Создай класс Human с полями имя (String), пол (boolean), возраст (int), дети (ArrayList<Human>).
+ * 2. Создай объекты и заполни их так, чтобы получилось: два дедушки, две бабушки, отец, мать, трое детей.
+ * 3. Вывести все объекты Human на экран.
+ */
+public class Solution {
+
+    public static void main(String[] args) {
         Human child1 = new Human("child1", true, 13, null);
         Human child2 = new Human("child2", false, 18, null);
         Human child3 = new Human("child3", true, 16, null);
@@ -48,80 +47,55 @@ public class Solution
         System.out.println(grandmother2);
     }
 
-    public static class Human
-    {
-        private String name;
-        private boolean sex;
-        private int age;
+    public static class Human {
+        private final String name;
+        private final boolean sex;
+        private final int age;
 
         private List<Human> children = new ArrayList<>();
 
-        public Human(String name, boolean sex, int age, List<Human> children)
-        {
+        public Human(String name, boolean sex, int age, List<Human> children) {
             this.name = name;
             this.sex = sex;
             this.age = age;
-            if (children != null)
-            {
+            if (children != null) {
                 this.children = children;
             }
         }
 
         @Override
-        public String toString()
-        {
+        public String toString() {
             final StringBuilder sb = new StringBuilder();
             sb.append("Имя: ").append(this.name)
                     .append(", пол: ").append(this.sex ? "мужской" : "женский")
                     .append(", возраст: ").append(this.age);
-            if (!this.children.isEmpty())
-            {
+            if (!this.children.isEmpty()) {
                 sb.append(", дети: ");
-                for (Human child : this.children)
-                {
+                for (Human child : this.children) {
                     sb.append(child.getName()).append(", ");
                 }
             }
             return sb.toString();
         }
 
-        public String getName()
-        {
+        public String getName() {
             return name;
         }
 
-        public void setName(String name)
-        {
-            this.name = name;
-        }
 
-        public boolean isSex()
-        {
+        public boolean isSex() {
             return sex;
         }
 
-        public void setSex(boolean sex)
-        {
-            this.sex = sex;
-        }
-
-        public int getAge()
-        {
+        public int getAge() {
             return age;
         }
 
-        public void setAge(int age)
-        {
-            this.age = age;
-        }
-
-        public List<Human> getChildren()
-        {
+        public List<Human> getChildren() {
             return children;
         }
 
-        public void setChildren(List<Human> children)
-        {
+        public void setChildren(final List<Human> children) {
             this.children = children;
         }
     }

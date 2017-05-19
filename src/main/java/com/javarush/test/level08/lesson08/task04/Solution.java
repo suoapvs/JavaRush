@@ -4,23 +4,20 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-/* Удалить всех людей, родившихся летом
-Создать словарь (Map<String, Date>) и занести в него десять записей по принципу: «фамилия» - «дата рождения».
-Удалить из словаря всех людей, родившихся летом.
-*/
+/**
+ * Удалить всех людей, родившихся летом
+ * Создать словарь (Map<String, Date>) и занести в него десять записей по принципу: «фамилия» - «дата рождения».
+ * Удалить из словаря всех людей, родившихся летом.
+ */
+public class Solution {
 
-public class Solution
-{
-    public static void main(String[] args)
-    {
-        removeAllSummerPeople(
-                createMap()
-        );
+    public static void main(String[] args) {
+        final HashMap<String, Date> map = createMap();
+        removeAllSummerPeople(map);
     }
 
-    public static HashMap<String, Date> createMap()
-    {
-        final HashMap<String, Date> map = new HashMap<String, Date>();
+    public static HashMap<String, Date> createMap() {
+        final HashMap<String, Date> map = new HashMap<>();
         map.put("Сталлоне", new Date("JUNE 1 1980"));
         map.put("Брюс Ли", new Date("APRIL 1 1970"));
         map.put("Джекки Чан", new Date("SEPTEMBER 1 1980"));
@@ -34,16 +31,14 @@ public class Solution
         return map;
     }
 
-    public static void removeAllSummerPeople(HashMap<String, Date> map)
-    {
+    public static void removeAllSummerPeople(HashMap<String, Date> map) {
         final Map<String, Date> temp = new HashMap<>(map);
-        for (Map.Entry<String, Date> entry : temp.entrySet())
-        {
-            if ((entry.getValue().getMonth() >= 5) && (entry.getValue().getMonth() <= 7))
-            {
-                map.remove(entry.getKey());
-            }
-        }
+        temp.entrySet().stream()
+                .filter(entry -> isSummerDate(entry.getValue()))
+                .forEach(entry -> map.remove(entry.getKey()));
     }
 
+    private static boolean isSummerDate(final Date date) {
+        return (date.getMonth() >= 5) && (date.getMonth() <= 7);
+    }
 }

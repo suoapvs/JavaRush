@@ -1,43 +1,41 @@
 package com.javarush.test.level09.lesson02.task03;
 
-/* Метод должен вернуть номер строки кода, из которого вызвали этот метод
-Написать пять методов, которые вызывают друг друга. Метод должен вернуть номер строки кода,
- из которого вызвали этот метод. Воспользуйся функцией: element.getLineNumber().
-*/
+/**
+ * Метод должен вернуть номер строки кода, из которого вызвали этот метод
+ * Написать пять методов, которые вызывают друг друга. Метод должен вернуть номер строки кода,
+ * из которого вызвали этот метод. Воспользуйся функцией: element.getLineNumber().
+ */
+public class Solution {
 
-public class Solution
-{
-    public static void main(String[] args) throws Exception
-    {
-       method1();
+    public static void main(String[] args) throws Exception {
+        System.out.println(method1());
     }
 
-    public static int method1()
-    {
+    public static int method1() {
         method2();
-        return Thread.currentThread().getStackTrace()[2].getLineNumber();
+        return getLineNumber(3);
     }
 
-    public static int method2()
-    {
+    public static int method2() {
         method3();
-        return Thread.currentThread().getStackTrace()[2].getLineNumber();
+        return getLineNumber(3);
     }
 
-    public static int method3()
-    {
+    public static int method3() {
         method4();
-        return Thread.currentThread().getStackTrace()[2].getLineNumber();
+        return getLineNumber(3);
     }
 
-    public static int method4()
-    {
+    public static int method4() {
         method5();
-        return Thread.currentThread().getStackTrace()[2].getLineNumber();
+        return getLineNumber(3);
     }
 
-    public static int method5()
-    {
-        return Thread.currentThread().getStackTrace()[2].getLineNumber();
+    public static int method5() {
+        return getLineNumber(3);
+    }
+
+    private static int getLineNumber(final int number) {
+        return Thread.currentThread().getStackTrace()[number].getLineNumber();
     }
 }

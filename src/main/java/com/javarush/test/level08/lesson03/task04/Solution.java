@@ -3,14 +3,14 @@ package com.javarush.test.level08.lesson03.task04;
 import java.util.HashMap;
 import java.util.Map;
 
-/* Вывести на экран список ключей
-Есть коллекция HashMap<String, String>, туда занесли 10 различных строк. Вывести на экран список ключей, каждый элемент с новой строки.
-*/
+/**
+ * Вывести на экран список ключей
+ * Есть коллекция HashMap<String, String>, туда занесли 10 различных строк.
+ * Вывести на экран список ключей, каждый элемент с новой строки.
+ */
+public class Solution {
 
-public class Solution
-{
-    public static void main(String[] args) throws Exception
-    {
+    public static void main(String[] args) throws Exception {
         final Map<String, String> map = new HashMap<>();
         map.put("Sim", "Sim");
         map.put("Tom", "Tom");
@@ -25,10 +25,8 @@ public class Solution
         printKeys(map);
     }
 
-    public static void printKeys(Map<String, String> map)
-    {
-        for (Map.Entry<String, String> entry : map.entrySet())
-        {
+    private static void printKeys(final Map<String, String> map) {
+        for (Map.Entry<String, String> entry : map.entrySet()) {
             System.out.println(entry.getKey());
         }
     }
