@@ -1,13 +1,12 @@
 package com.javarush.test.level10.lesson11.home02;
 
-/* Правильный ответ: d=5.5
-Добавить одну операцию по преобразованию типа, чтобы получался ответ: d=5.5.
-*/
+/**
+ * Правильный ответ: d=5.5
+ * Добавить одну операцию по преобразованию типа, чтобы получался ответ: d=5.5.
+ */
+public class Solution {
 
-public class Solution
-{
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         int a = 5;
         int b = 4;
         int c = 3;
